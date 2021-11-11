@@ -1,12 +1,14 @@
 require_relative './key'
+require 'date'
 
 class Enigma
   include KeyEnumerables
 
-  attr_reader :random_key
+  attr_reader :random_key, :date
 
   def initialize()
     @random_key = generate_random_key
+    @date = date_format
   end
 
   def encrypt(message,key_input = @random_key, date_input = "040895")
