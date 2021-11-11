@@ -11,7 +11,7 @@ class Enigma
     @date = date_format
   end
 
-  def encrypt(message,key_input = @random_key, date_input = "040895")
+  def encrypt(message,key_input = @random_key, date_input = @date)
     encrypt = {
       encryption: 0,#encryption_method(message)
       key: key_input, #should randomly generate a key
