@@ -8,11 +8,13 @@ describe Enigma do
     enigma = Enigma.new
 
     expect(enigma).to be_a Enigma
+    expect(enigma.random_key).to be_a String
     expect(enigma.random_key.length).to eq 5
     expect(enigma.date).to be_a String
+    expect(enigma.date.length).to eq 6
   end
 
-  it 'can encrypt' do
+  xit 'can encrypt' do
     enigma = Enigma.new
     expected = {
                 encryption: "keder ohulw",
@@ -34,5 +36,14 @@ describe Enigma do
 
     expect(enigma.generate_random_key.length).to be 5
   end
+
+  it 'can format date to be six integers and a string' do
+    enigma = Enigma.new
+
+    expect(enigma.date_format).to be_a String
+    expect(enigma.date_format.length).to eq 6
+  end
+
+
 
 end
