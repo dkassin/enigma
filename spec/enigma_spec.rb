@@ -7,6 +7,7 @@ describe Enigma do
     enigma = Enigma.new
 
     expect(enigma).to be_a Enigma
+    expect(enigma.random_key.length).to eq 5
   end
 
   it 'can encrypt' do
@@ -17,6 +18,8 @@ describe Enigma do
                 date: "040895"
               }
 
-    expect(enigma.encrypt("hello world", "02715", "040895")).to eq (expected)
+    expect(enigma.encrypt("hello world")).to eq (expected)
   end
+
+
 end
