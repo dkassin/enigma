@@ -33,8 +33,8 @@ describe Encryption do
                 "B" => 27,
                 "C" => 73,
                 "D" => 20 }
-  key_hash = encryptor.keys_hash(encryptor.key_input)
-  offset_hash = encryptor.offset_hash(encryptor.date_input)
+  key_hash = encryptor.keys_hash
+  offset_hash = encryptor.offset_hash
 
   expect(encryptor.final_shift(key_hash, offset_hash)).to eq (expected)
   end
@@ -60,7 +60,7 @@ describe Encryption do
                 "B" => 27 ,
                 "C" => 71 ,
                 "D" => 15 }
-  expect(encryptor.keys_hash(encryptor.key_input)).to eq (expected)
+  expect(encryptor.keys_hash).to eq (expected)
   end
 
   it 'can return a hash for the offset' do
@@ -72,7 +72,7 @@ describe Encryption do
                 "B" => 0 ,
                 "C" => 2 ,
                 "D" => 5 }
-  expect(encryptor.offset_hash(encryptor.date_input)).to eq (expected)
+  expect(encryptor.offset_hash).to eq (expected)
   end
 
 
