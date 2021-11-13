@@ -127,5 +127,14 @@ describe Encryption do
     expect(encryptor.shift.length).to eq 4
   end
 
+  it 'can encrypt message' do
+    enigma = Enigma.new
+    encryptor = Encryption.new("hello world","02715", "040895")
+    expected = ["k","e","d","e","r"," ","o","h","u","l","w"]
+    expect(encryptor.encryptor).to eq(expected)
+  end
+
+
+
 
 end
