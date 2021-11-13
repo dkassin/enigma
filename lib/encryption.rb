@@ -1,4 +1,7 @@
+require_relative './encryption_module'
+
 class Encryption
+  include EncryptionEnumerables
 
   attr_reader :message, :key_input, :date_input, :character_set
 
