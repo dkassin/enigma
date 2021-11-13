@@ -52,4 +52,28 @@ class Encryption
     hash
   end
 
+  def encryptor
+    counter = 4
+    new_message = []
+    hash = shift
+    characters = @message.split("")
+    characters.each do |char|
+      characters
+      if @character_set.include?(char)
+        counter += 1
+        if counter.to_f % 4 == 1
+          new_message << hash["A"][char]
+        elsif counter.to_f % 4  == 2
+          new_message << hash["B"][char]
+        elsif counter.to_f % 4  == 3
+          new_message << hash["C"][char]
+        else
+          new_message << hash["D"][char]
+        end
+      else
+        new_message.append(char)
+      end
+    end
+    new_message
+  end
 end
