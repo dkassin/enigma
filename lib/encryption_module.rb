@@ -21,4 +21,11 @@ module EncryptionEnumerables
             "D" => key.slice(3..4).to_i
           }
   end
+
+  def offset_hash(date_input)
+    keys = ("A".."D").to_a
+    value = date_input.to_i * date_input.to_i
+    last_four = value.to_s[-4..-1].split("")
+    hash = keys.zip(last_four.map(&:to_i)).to_h
+  end
 end
