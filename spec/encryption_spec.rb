@@ -87,36 +87,44 @@ describe Encryption do
     enigma = Enigma.new
     encryptor = Encryption.new("hello world","02715", "040895")
 
-    expect(encryptor.a_shift).to be_a Hash
-    expect(encryptor.a_shift.length).to eq 27
-    expect(encryptor.a_shift["a"]).to eq ('d')
+    expect(encryptor.shift["A"]).to be_a Hash
+    expect(encryptor.shift["A"].length).to eq 27
+    expect(encryptor.shift["A"]["a"]).to eq ('d')
   end
 
   it 'can show a shift for B' do
     enigma = Enigma.new
     encryptor = Encryption.new("hello world","02715", "040895")
 
-    expect(encryptor.b_shift).to be_a Hash
-    expect(encryptor.b_shift.length).to eq 27
-    expect(encryptor.b_shift["a"]).to eq ('a')
+    expect(encryptor.shift["B"]).to be_a Hash
+    expect(encryptor.shift["B"].length).to eq 27
+    expect(encryptor.shift["B"]["a"]).to eq ('a')
   end
 
   it 'can show a shift for C' do
     enigma = Enigma.new
     encryptor = Encryption.new("hello world","02715", "040895")
 
-    expect(encryptor.c_shift).to be_a Hash
-    expect(encryptor.c_shift.length).to eq 27
-    expect(encryptor.c_shift["a"]).to eq ('t')
+    expect(encryptor.shift["C"]).to be_a Hash
+    expect(encryptor.shift["C"].length).to eq 27
+    expect(encryptor.shift["C"]["a"]).to eq ('t')
   end
 
   it 'can show a shift for D' do
     enigma = Enigma.new
     encryptor = Encryption.new("hello world","02715", "040895")
 
-    expect(encryptor.d_shift).to be_a Hash
-    expect(encryptor.d_shift.length).to eq 27
-    expect(encryptor.d_shift["a"]).to eq ('u')
+    expect(encryptor.shift["D"]).to be_a Hash
+    expect(encryptor.shift["D"].length).to eq 27
+    expect(encryptor.shift["D"]["a"]).to eq ('u')
+  end
+
+  it 'can show a shift for hash' do
+    enigma = Enigma.new
+    encryptor = Encryption.new("hello world","02715", "040895")
+
+    expect(encryptor.shift).to be_a Hash
+    expect(encryptor.shift.length).to eq 4
   end
 
 
