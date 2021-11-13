@@ -23,4 +23,41 @@ describe Encryption do
                "u", "v", "w", "x", "y", "z", " "]
   expect(encryptor.character_set).to eq (expected)
   end
+
+  xit 'can return a hash of shifts' do
+  enigma = Enigma.new
+  encryptor = Encryption.new("hello world","02715", "040895")
+  expected =
+              {
+                "A" => 3,
+                "B" => 27,
+                "C" => 73,
+                "D" => 20 }
+  expect(encryptor.final_shift).to eq (expected)
+  end
+
+  it 'can return a hash of with letters as keys' do
+  enigma = Enigma.new
+  encryptor = Encryption.new("hello world","02715", "040895")
+  expected =
+              {
+                "A" => 0 ,
+                "B" => 0 ,
+                "C" => 0 ,
+                "D" => 0 }
+  expect(encryptor.hash_setup).to eq (expected)
+  end
+
+  it 'can return a hash of with letters as keys' do
+  enigma = Enigma.new
+  encryptor = Encryption.new("hello world","02715", "040895")
+  expected =
+              {
+                "A" => 02 ,
+                "B" => 27 ,
+                "C" => 71 ,
+                "D" => 15 }
+  expect(encryptor.keys_hash(encryptor.key_input)).to eq (expected)
+  end
+
 end
