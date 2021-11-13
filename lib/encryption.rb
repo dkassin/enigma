@@ -44,21 +44,12 @@ class Encryption
     hash = keys.zip(last_four.map(&:to_i)).to_h
   end
 
-  def a_shift
-    @character_set.zip(@character_set.rotate(@final_shift["A"])).to_h
+  def shift
+    hash = Hash.new
+    keys_hash.keys.each do |key|
+      hash[key] = @character_set.zip(@character_set.rotate(@final_shift[key])).to_h
+    end
+    hash
   end
-
-  def b_shift
-    @character_set.zip(@character_set.rotate(@final_shift["B"])).to_h
-  end
-
-  def c_shift
-    @character_set.zip(@character_set.rotate(@final_shift["C"])).to_h
-  end
-
-  def d_shift
-    @character_set.zip(@character_set.rotate(@final_shift["D"])).to_h
-  end
-
 
 end
