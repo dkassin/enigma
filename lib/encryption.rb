@@ -2,17 +2,18 @@
 
 class Encryption
 
-  attr_reader :message, :key_input, :date_input, :character_set
+  attr_reader :message, :key_input, :date_input, :character_set, :final_shift
 
   def initialize(message,key_input, date_input)
     @message = message
     @key_input = key_input
     @date_input = date_input
     @character_set = ("a".."z").to_a << " "
+    @final_shift = final_shift
   end
 
-  def final_shift(key_hash,offset_hash)
-    key_hash.merge!(offset_hash) do |key, old_value, new_value|
+  def final_shift
+    keys_hash.merge!(offset_hash) do |key, old_value, new_value|
       old_value + new_value
     end
   end
@@ -41,6 +42,22 @@ class Encryption
     value = @date_input.to_i * @date_input.to_i
     last_four = value.to_s[-4..-1].split("")
     hash = keys.zip(last_four.map(&:to_i)).to_h
+  end
+
+  def a_shift
+    @character_set.zip(@character_set.rotate(@final_shift["A"])).to_h
+  end
+
+  def b_shift
+    @character_set.zip(@character_set.rotate(@final_shift["B"])).to_h
+  end
+
+  def c_shift
+    @character_set.zip(@character_set.rotate(@final_shift["C"])).to_h
+  end
+
+  def d_shift
+    @character_set.zip(@character_set.rotate(@final_shift["D"])).to_h
   end
 
 
