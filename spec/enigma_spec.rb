@@ -14,15 +14,11 @@ describe Enigma do
     expect(enigma.date.length).to eq 6
   end
 
-  xit 'can encrypt' do
+  it 'can encrypt' do
     enigma = Enigma.new
-    expected = {
-                encryption: "keder ohulw",
-                key: "02715",
-                date: "040895"
-              }
 
-    expect(enigma.encrypt("hello world")).to eq (expected)
+
+    expect(enigma.encrypt("hello world","02715", "040895")).to be_a Encryption
   end
 
   it 'can generate_random number as a string' do
