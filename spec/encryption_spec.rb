@@ -48,7 +48,7 @@ describe Encryption do
   expect(encryptor.hash_setup).to eq (expected)
   end
 
-  it 'can return a hash of with letters as keys' do
+  it 'can return a hash for the keys' do
   enigma = Enigma.new
   encryptor = Encryption.new("hello world","02715", "040895")
   expected =
@@ -59,5 +59,18 @@ describe Encryption do
                 "D" => 15 }
   expect(encryptor.keys_hash(encryptor.key_input)).to eq (expected)
   end
+
+  it 'can return a hash for the offset' do
+  enigma = Enigma.new
+  encryptor = Encryption.new("hello world","02715", "040895")
+  expected =
+              {
+                "A" => 1 ,
+                "B" => 0 ,
+                "C" => 2 ,
+                "D" => 5 }
+  expect(encryptor.offset_hash(encryptor.date_input)).to eq (expected)
+  end
+
 
 end
