@@ -24,7 +24,7 @@ describe Encryption do
   expect(encryptor.character_set).to eq (expected)
   end
 
-  xit 'can return a hash of shifts' do
+  it 'can return a hash of shifts' do
   enigma = Enigma.new
   encryptor = Encryption.new("hello world","02715", "040895")
   expected =
@@ -33,7 +33,10 @@ describe Encryption do
                 "B" => 27,
                 "C" => 73,
                 "D" => 20 }
-  expect(encryptor.final_shift).to eq (expected)
+  key_hash = encryptor.keys_hash(encryptor.key_input)
+  offset_hash = encryptor.offset_hash(encryptor.date_input)
+
+  expect(encryptor.final_shift(key_hash, offset_hash)).to eq (expected)
   end
 
   it 'can return a hash of with letters as keys' do
