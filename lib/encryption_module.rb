@@ -1,6 +1,9 @@
 module EncryptionEnumerables
 
-  def final_shift
+  def final_shift(key_hash,offset_hash)
+    key_hash.merge!(offset_hash) do |key, old_value, new_value|
+      old_value + new_value
+    end
   end
 
   def hash_setup
