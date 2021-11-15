@@ -5,7 +5,7 @@ class Encryption
   attr_reader :message, :key_input, :date_input, :character_set, :final_shift
 
   def initialize(message,key_input, date_input)
-    @message = message.downcase
+    @message = message.downcase.split("")
     @key_input = key_input
     @date_input = date_input
     @character_set = ("a".."z").to_a << " "
@@ -47,9 +47,8 @@ class Encryption
     counter = 4
     new_message = []
     hash = shift(shift)
-    characters = @message.split("")
-    characters.each do |char|
-      characters
+    characters = @message
+    @message.each do |char|
       if @character_set.include?(char)
         counter += 1
         if counter.to_f % 4 == 1
