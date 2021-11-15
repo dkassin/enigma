@@ -1,4 +1,5 @@
 require_relative './key'
+require_relative './encryption'
 require 'date'
 
 class Enigma

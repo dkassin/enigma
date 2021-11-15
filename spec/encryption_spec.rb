@@ -47,18 +47,6 @@ describe Encryption do
     expect(encryptor.final_shift).to eq (expected)
   end
 
-  it 'can return a hash of with letters as keys' do
-    enigma = Enigma.new
-    encryptor = Encryption.new("hello world","02715", "040895")
-    expected =
-              {
-                "A" => 0 ,
-                "B" => 0 ,
-                "C" => 0 ,
-                "D" => 0 }
-    expect(encryptor.hash_setup).to eq (expected)
-  end
-
   it 'can return a hash for the keys' do
     enigma = Enigma.new
     encryptor = Encryption.new("hello world","02715", "040895")

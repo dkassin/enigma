@@ -5,7 +5,7 @@ class Encryption
   attr_reader :message, :key_input, :date_input, :character_set, :final_shift
 
   def initialize(message,key_input, date_input)
-    @message = message
+    @message = message.downcase
     @key_input = key_input
     @date_input = date_input
     @character_set = ("a".."z").to_a << " "
@@ -16,15 +16,6 @@ class Encryption
     keys_hash.merge!(offset_hash) do |key, old_value, new_value|
       old_value + new_value
     end
-  end
-
-  def hash_setup
-    keys = ("A".."D").to_a
-    hash = Hash.new(0)
-    keys.each do |key|
-      hash[key] = 0
-    end
-    hash
   end
 
   def keys_hash
@@ -43,7 +34,6 @@ class Encryption
     last_four = value.to_s[-4..-1].split("")
     hash = keys.zip(last_four.map(&:to_i)).to_h
   end
-
 
   def shift(multiplier = 1)
     hash = Hash.new
