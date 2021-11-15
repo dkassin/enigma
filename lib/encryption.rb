@@ -44,15 +44,8 @@ class Encryption
     hash = keys.zip(last_four.map(&:to_i)).to_h
   end
 
-  def switcher(boolean = true)
-    if boolean == true
-      1
-    else
-      -1
-    end
-  end
 
-  def shift(multiplier)
+  def shift(multiplier = 1)
     hash = Hash.new
     keys_hash.keys.each do |key|
       hash[key] = @character_set.zip(@character_set.rotate(@final_shift[key]*multiplier)).to_h
