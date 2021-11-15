@@ -26,10 +26,9 @@ class Enigma
     @encryption = Encryption.new(message,key_input,date_input)
     decrypt_hash =
                   {
-                    encryption: @encryption.encryptor(-1),
+                    decryption: @encryption.encryptor(-1),
                     key: key_input,
                     date: date_input
                   }
-    require "pry"; binding.pry
   end
 end
