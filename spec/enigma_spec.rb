@@ -1,5 +1,6 @@
 require 'date'
 require './lib/enigma'
+require './lib/encryption'
 require 'simplecov'
 SimpleCov.start
 
@@ -16,9 +17,24 @@ describe Enigma do
 
   it 'can encrypt' do
     enigma = Enigma.new
+    expected = {
+                  encryption: "keder ohulw",
+                  key: "02715",
+                  date: "040895"
+                }
 
+    expect(enigma.encrypt("hello world","02715", "040895")).to eq(expected)
+  end
 
-    expect(enigma.encrypt("hello world","02715", "040895")).to be_a Encryption
+  it 'can decrypt' do
+    enigma = Enigma.new
+    expected = {
+                  encryption: "hello world",
+                  key: "02715",
+                  date: "040895"
+                }
+
+    expect(enigma.decrypt("keder ohulw","02715", "040895")).to eq(expected)
   end
 
   it 'can generate_random number as a string' do
