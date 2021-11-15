@@ -14,9 +14,10 @@ describe Encryption do
                 "B" => 27,
                 "C" => 73,
                 "D" => 20 }
+    expected_2 = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
 
     expect(encryptor).to be_a Encryption
-    expect(encryptor.message).to eq ("hello world")
+    expect(encryptor.message).to eq (expected_2)
     expect(encryptor.key_input).to eq ("02715")
     expect(encryptor.date_input).to eq ("040895")
     expect(encryptor.final_shift).to eq(expected)
@@ -45,18 +46,6 @@ describe Encryption do
   # offset_hash = encryptor.offset_hash
 
     expect(encryptor.final_shift).to eq (expected)
-  end
-
-  it 'can return a hash of with letters as keys' do
-    enigma = Enigma.new
-    encryptor = Encryption.new("hello world","02715", "040895")
-    expected =
-              {
-                "A" => 0 ,
-                "B" => 0 ,
-                "C" => 0 ,
-                "D" => 0 }
-    expect(encryptor.hash_setup).to eq (expected)
   end
 
   it 'can return a hash for the keys' do
@@ -133,8 +122,5 @@ describe Encryption do
     expected = "keder ohulw"
     expect(encryptor.encryptor).to eq(expected)
   end
-
-
-
 
 end
