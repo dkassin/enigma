@@ -29,7 +29,7 @@ describe Enigma do
   it 'can decrypt' do
     enigma = Enigma.new
     expected = {
-                  encryption: "hello world",
+                  decryption: "hello world",
                   key: "02715",
                   date: "040895"
                 }
@@ -56,6 +56,19 @@ describe Enigma do
     expect(enigma.date_format.length).to eq 6
   end
 
+  it 'can encrypt a message with a key (uses todays date)' do
+    enigma = Enigma.new
+    encrypted = enigma.encrypt("hello world","02715")
+    expect(encrypted).to be_a Hash
+    expect(encrypted[:key]).to eq("02715")
+  end
 
-
+  it 'decrypt a message with a key (uses todays date)' do
+    enigma = Enigma.new
+    encrypted = enigma.encrypt("hello world","02715")
+    decrypted = enigma.decrypt(encrypted[:encryption], "02715")
+    expect(decrypted).to be_a Hash
+    expect(decrypted[:key]).to eq("02715")
+    expect(decrypted[:decryption]).to eq("hello world")
+  end
 end
