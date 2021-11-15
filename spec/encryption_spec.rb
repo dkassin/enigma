@@ -130,7 +130,7 @@ describe Encryption do
   it 'can encrypt message' do
     enigma = Enigma.new
     encryptor = Encryption.new("hello world","02715", "040895")
-    expected = ["k","e","d","e","r"," ","o","h","u","l","w"]
+    expected = "keder ohulw"
     expect(encryptor.encryptor).to eq(expected)
   end
 

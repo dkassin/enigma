@@ -74,6 +74,6 @@ class Encryption
         new_message.append(char)
       end
     end
-    new_message
+    new_message.join("")
   end
 end
