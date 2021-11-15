@@ -1,7 +1,61 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/davidkassin/1module/enigma/spec/enigma_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/davidkassin/1module/enigma/spec/key_spec.rb": {
+        "lines": [
+
+        ]
+      }
     },
-    "timestamp": 1636603783
+    "timestamp": 1636835057
   }
 }

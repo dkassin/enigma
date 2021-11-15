@@ -4,7 +4,7 @@ require 'date'
 class Enigma
   include KeyEnumerables
 
-  attr_reader :random_key, :date
+  attr_reader :random_key, :date, :encryptor
 
   def initialize()
     @random_key = generate_random_key
@@ -12,10 +12,6 @@ class Enigma
   end
 
   def encrypt(message,key_input = @random_key, date_input = @date)
-    encrypt = {
-      encryption: 0,#encryption_method(message)
-      key: key_input, #should randomly generate a key
-      date: date_input
-    }
+    Encryption.new(message,key_input,date_input)
   end
 end
