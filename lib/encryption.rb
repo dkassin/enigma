@@ -43,10 +43,10 @@ class Encryption
     hash
   end
 
-  def encryptor(shift = 1)
+  def encryptor(multiplier = 1)
     counter = 4
     new_message = []
-    hash = shift(shift)
+    hash = shift(multiplier)
     characters = @message
     @message.each do |char|
       if @character_set.include?(char)
