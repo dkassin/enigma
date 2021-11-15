@@ -134,6 +134,15 @@ describe Encryption do
     expect(encryptor.encryptor).to eq(expected)
   end
 
+  it 'can return a positive or negative 1' do
+    enigma = Enigma.new
+    encryptor = Encryption.new("hello world","02715", "040895")
+
+    expect(encryptor.switcher(true)).to be_a Integer
+    expect(encryptor.switcher(true)).to eq 1
+    expect(encryptor.switcher(false)).to be_a Integer
+    expect(encryptor.switcher(false)).to eq (-1)
+  end
 
 
 
