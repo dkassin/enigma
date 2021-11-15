@@ -71,4 +71,11 @@ describe Enigma do
     expect(decrypted[:key]).to eq("02715")
     expect(decrypted[:decryption]).to eq("hello world")
   end
+
+  it 'encrypt a message (generates random key and uses todays date)' do
+    enigma = Enigma.new
+    encrypted = enigma.encrypt("hello world")
+
+    expect(encrypted).to be_a Hash
+  end
 end
