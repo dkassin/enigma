@@ -75,7 +75,7 @@ describe Enigma do
   it 'encrypt a message (generates random key and uses todays date)' do
     enigma = Enigma.new
     encrypted = enigma.encrypt("hello world")
-
+    require "pry"; binding.pry
     expect(encrypted).to be_a Hash
   end
 end
